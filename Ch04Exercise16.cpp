@@ -8,9 +8,9 @@ int main()
     const double fixed_royalty = 5000.00;
     const double pub_royalty = 20000.00;
 
-    const double option2_rate = 0.125;
-    const double option3_rate1 = 0.10;
-    const double option3_rate2 = 0.14;
+    const double option1_rate = 0.125;
+    const double option2_rate = 0.10;
+    const double option3_rate = 0.14;
     const int option3_max = 4000;
 
     double netPrice;
@@ -24,18 +24,18 @@ int main()
 
     double option1 = fixed_royalty + pub_royalty;
 
-    double option2 = option2_rate * netPrice * num_copies;
+    double option2 = option1_rate * netPrice * num_copies;
 
     double option3;
 
     if (num_copies <= option3_max)
     {
-        option3 = option3_rate1 * netPrice * num_copies;
+        option3 = option2_rate * netPrice * num_copies;
     }
     else
     {
-        option3 = option3_rate1 * netPrice * option3_max
-                + option3_rate2 * netPrice * (num_copies - option3_max);
+        option3 = option2_rate * netPrice * option3_max
+                + option3_rate * netPrice * (num_copies - option3_max);
     }
 
     cout << fixed << setprecision(2);
